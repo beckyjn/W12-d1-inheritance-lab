@@ -25,11 +25,20 @@ public abstract class Employee {
     }
 
     public void raiseSalary(double increment){
-        double raise = salary * increment;
+        double raise = salary * Math.abs(increment);
         salary += raise;
     }
 
     public double payBonus() {
         return salary * 0.01;
+    }
+
+    public void setName(String name) {
+        if (validateNameInput(name)) {
+            this.name = name;
+        }
+    }
+    private boolean validateNameInput(String nameInput){
+        return !(nameInput == null || nameInput.length() ==  0);
     }
 }

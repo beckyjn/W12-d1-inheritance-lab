@@ -43,4 +43,28 @@ public class ManagerTest {
     public void hasDepartmentName() {
         assertEquals("Cool Stuff", manager.getDeptName());
     }
+
+    @Test
+    public void cannotRaiseSalaryByNegative() {
+        manager.raiseSalary(-0.1);
+        assertEquals(55000, manager.getSalary(), 0.1);
+    }
+
+    @Test
+    public void canChangeName() {
+        manager.setName("Jenn");
+        assertEquals("Jenn", manager.getName());
+    }
+
+    @Test
+    public void cannotChangeNameToNull() {
+        manager.setName(null);
+        assertEquals("Becky", manager.getName());
+    }
+
+    @Test
+    public void cannotChangeNameToEmptyString() {
+        manager.setName("");
+        assertEquals("Becky", manager.getName());
+    }
 }
